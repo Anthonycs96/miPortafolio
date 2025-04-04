@@ -4,6 +4,8 @@ const About = () => {
     return (
         <section id="about" className="relative py-16 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)] via-[var(--accent)] to-[var(--secondary)] opacity-5" />
+            {/* Fondo inclinado superior */}
+
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-transparent bg-clip-text">
