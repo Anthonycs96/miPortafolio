@@ -101,17 +101,39 @@ const educationData = [
 ]
 
 const experienceData = [
+    // {
+    //     type: "Proyecto personal",
+    //     title: "Desarrollador Full Stack – Sistema de Gestión para Veterinarias",
+    //     period: "2024 - Actual",
+    //     description: "Proyecto completo con Next.js, Node.js, Express y MySQL. Incluye autenticación, gestión de citas médicas, servicios adicionales y roles personalizados para usuarios."
+    // },
     {
-        type: "Proyecto personal",
-        title: "Desarrollador Full Stack – Sistema de Gestión para Veterinarias",
-        period: "2024 - Actual",
-        description: "Proyecto completo con Next.js, Node.js, Express y MySQL. Incluye autenticación, gestión de citas médicas, servicios adicionales y roles personalizados para usuarios."
-    },
-    {
-        type: "Proyecto personal",
-        title: "Desarrollador Frontend – Portafolio Web Personal",
-        period: "2023",
-        description: "Creación de un portafolio responsivo con Next.js y Tailwind CSS. Incluye animaciones suaves, modo oscuro, secciones dinámicas, y despliegue automático."
+        type: "Proyecto Personal Full Stack",
+        title: "VetListo+ | Sistema de Gestión Veterinaria",
+        period: "En proceso.",
+        description: `Desarrollo de una aplicación web completa para la gestión de clínicas veterinarias.
+
+    Frontend:
+    • Desarrollo de interfaz moderna con Next.js 14 y TailwindCSS
+    • Implementación de sistema de autenticación JWT
+    • Diseño de dashboard interactivo con múltiples roles
+    • Integración de animaciones fluidas con Framer Motion
+    • Sistema de tema oscuro/claro personalizable
+
+    Backend:
+    • Desarrollo de API REST con Node.js y Express
+    • Diseño de base de datos PostgreSQL con Sequelize ORM
+    • Implementación de sistema de roles y permisos
+    • Desarrollo de sistema de auditoría de cambios
+    • Integración de sistema de fidelización de clientes`,
+
+        highlights: [
+            "Arquitectura modular y escalable",
+            "Sistema multi-rol completo",
+            "Diseño responsive y accesible",
+            "Optimización de rendimiento",
+            "Documentación detallada"
+        ]
     }
 ]
 

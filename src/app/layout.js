@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import Head from 'next/head';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import AudioPlayer from '@/components/AudioPlayer'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,6 +62,7 @@ const Layout = ({ children }) => {
           {children}
         </main>
         <Footer />
+        <AudioPlayer />
       </div>
     </>
   );
