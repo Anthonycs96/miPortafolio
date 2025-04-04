@@ -3,7 +3,7 @@ import Image from 'next/image'
 const Hero = () => {
     return (
         <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600">
-            <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)]" />
+
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
                 <div className="flex flex-col md:flex-row items-center gap-12">
