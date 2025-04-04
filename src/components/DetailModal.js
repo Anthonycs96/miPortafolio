@@ -2,20 +2,32 @@
 import { useEffect } from 'react'
 
 const DetailModal = ({ project, onClose }) => {
-    if (!project) return null;
-
     useEffect(() => {
         const handleEsc = (e) => {
             if (e.key === 'Escape') onClose()
         }
-        window.addEventListener('keydown', handleEsc)
-        return () => window.removeEventListener('keydown', handleEsc)
+
+        const handleClickOutside = (e) => {
+            if (e.target.classList.contains('modal-overlay')) {
+                onClose()
+            }
+        }
+
+        document.addEventListener('keydown', handleEsc)
+        document.addEventListener('click', handleClickOutside)
+
+        return () => {
+            document.removeEventListener('keydown', handleEsc)
+            document.removeEventListener('click', handleClickOutside)
+        }
     }, [onClose])
+
+    if (!project) return null
 
     return (
         <div className="fixed inset-0 z-50 overflow-y-auto">
             <div
-                className="fixed inset-0 bg-black/30 backdrop-blur-sm"
+                className="fixed inset-0 bg-black/30 backdrop-blur-sm modal-overlay"
                 onClick={onClose}
             />
 
