@@ -40,7 +40,7 @@ const Contact = () => {
 
 
     return (
-        <section id="contact" className="relative py-24 overflow-hidden">
+        <section id="contact" className="relative py-16 overflow-hidden">
             {/* Fondo con mesh gradient */}
             <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,var(--primary),var(--background)_70%)] opacity-20 dark:opacity-30" />

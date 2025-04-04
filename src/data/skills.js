@@ -1,50 +1,74 @@
 export const skills = [
     {
-        name: "React",
-        icon: "⚛️",
-        level: 90,
-        category: "Frontend"
-    },
-    {
-        name: "Next.js",
-        icon: "▲",
-        level: 85,
-        category: "Frontend"
-    },
-    {
-        name: "Node.js",
-        icon: "📦",
-        level: 80,
-        category: "Backend"
-    },
-    {
-        name: "TypeScript",
-        icon: "🔷",
-        level: 85,
+        name: "JavaScript (básico)",
+        icon: "🟨",
+        level: 35,
         category: "Lenguajes"
     },
     {
-        name: "MongoDB",
-        icon: "🍃",
-        level: 75,
+        name: "Node.js (básico)",
+        icon: "📦",
+        level: 30,
         category: "Backend"
     },
     {
-        name: "PostgreSQL",
-        icon: "🐘",
-        level: 70,
+        name: "Express.js (básico)",
+        icon: "🚂",
+        level: 35,
         category: "Backend"
     },
     {
-        name: "Docker",
-        icon: "🐳",
-        level: 65,
-        category: "DevOps"
+        name: "MySQL (básico)",
+        icon: "🛢️",
+        level: 30,
+        category: "Bases de Datos"
     },
     {
-        name: "AWS",
-        icon: "☁️",
-        level: 60,
-        category: "DevOps"
+        name: "Next.js (básico)",
+        icon: "▲",
+        level: 35,
+        category: "Frontend"
+    },
+    {
+        name: "Tailwind CSS (básico)",
+        icon: "🎨",
+        level: 30,
+        category: "Frontend"
+    },
+    {
+        name: "Git & GitHub (básico)",
+        icon: "🔧",
+        level: 30,
+        category: "Herramientas"
+    },
+    {
+        name: "Postman (básico)",
+        icon: "📬",
+        level: 35,
+        category: "Herramientas"
+    },
+    {
+        name: "Linux (Xubuntu)",
+        icon: "🐧",
+        level: 30,
+        category: "Herramientas"
+    },
+    {
+        name: "Scrum & Kanban",
+        icon: "📋",
+        level: 40,
+        category: "Metodologías"
+    },
+    {
+        name: "Español",
+        icon: "🇪🇸",
+        level: 100,
+        category: "Idiomas"
+    },
+    {
+        name: "Inglés (básico)",
+        icon: "🇺🇸",
+        level: 40,
+        category: "Idiomas"
     }
 ]

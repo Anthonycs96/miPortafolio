@@ -20,12 +20,6 @@ const Hero = () => {
                             Desarrollador Junior | Estudiante de Ingeniería en Software
                         </h2>
 
-                        <p className="text-lg mb-8 leading-relaxed text-white/80">
-                            Buscando mi primera oportunidad profesional como desarrollador.
-                            Me apasiona aprender nuevas tecnologías y contribuir al desarrollo
-                            de soluciones innovadoras.
-                        </p>
-
                         <div className="flex gap-4 justify-center md:justify-start">
                             <a href="#projects"
                                 className="bg-white text-[var(--primary)] px-8 py-3 rounded-lg 

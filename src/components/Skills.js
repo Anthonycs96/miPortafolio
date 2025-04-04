@@ -3,7 +3,7 @@ import { skills } from '../data/skills'
 
 const Skills = () => {
     return (
-        <section id="skills" className="relative py-24 overflow-hidden">
+        <section id="skills" className="relative py-16 overflow-hidden">
             {/* Fondo con degradado sutil similar a About */}
             <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/5 via-[var(--accent)]/5 to-[var(--secondary)]/5" />
