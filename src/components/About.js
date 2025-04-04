@@ -122,7 +122,7 @@ const experienceData = [
 
     Backend:
     • Desarrollo de API REST con Node.js y Express
-    • Diseño de base de datos PostgreSQL con Sequelize ORM
+    • Diseño de base de datos MySQL
     • Implementación de sistema de roles y permisos
     • Desarrollo de sistema de auditoría de cambios
     • Integración de sistema de fidelización de clientes`,
