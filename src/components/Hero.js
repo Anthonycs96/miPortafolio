@@ -39,7 +39,7 @@ const Hero = () => {
                         <div className="relative w-64 h-64 md:w-80 md:h-80">
                             <div className="absolute inset-0 bg-white/10 rounded-full blur-2xl" />
                             <Image
-                                src="https://scontent.flim23-1.fna.fbcdn.net/v/t39.30808-6/487811228_24080685984867106_3627444449675481581_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeFIROPXxiZ3zNmjvxWyo6NNDuqsUbpPQGgO6qxRuk9AaEGSElVKdKrxZCLDx1aJlGn1nb8zqWUsyMizBUodCjwl&_nc_ohc=Bo72fbjDTKIQ7kNvgEJa2EF&_nc_oc=Adkm70RxSzvex5NZySM8Kg7KWBcWXCy_dcVHKqyGGtXIrV-zUWqBWJMEucFWQzbkygt9X5uvchgpyXDG04Aue6tP&_nc_zt=23&_nc_ht=scontent.flim23-1.fna&_nc_gid=fgvUhFhlNZxyOXegEz4r3g&oh=00_AYEBWrJO18F77_T_dL1iS9LWy1rb2vNonhbq2l31qFgF3Q&oe=67F494D7"
+                                src="https://raw.githubusercontent.com/Anthonycs96/miPortafolio/refs/heads/main/assets/imagen1.jpg"
                                 alt="Anthony Carhuayalle"
                                 fill
                                 className="rounded-full object-cover border-4 border-white/20"

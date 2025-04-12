@@ -20,7 +20,7 @@ const About = () => {
                             <div className="absolute inset-0 bg-[var(--background-secondary)] rounded-2xl rotate-3 group-hover:-rotate-3 transition-all duration-300" />
                             <div className="relative w-full h-full overflow-hidden rounded-2xl">
                                 <Image
-                                    src="https://scontent.flim23-1.fna.fbcdn.net/v/t39.30808-6/486374655_24087523600850011_3334554782783614825_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEheDIjIEMyEGbxSYbncCCHZrEpMa9L5glmsSkxr0vmCfBhr6l_Hzl2j4P76wI6rxaKtgjyVKRs7Urso9n69P4R&_nc_ohc=7DsDSQl9a40Q7kNvwF8K1Gl&_nc_oc=Adlz0dZdqgGu9VV0nAUiGTFmDldwqEEM180DdrLjR9YsgNX6c3uT0R7kSYpnArX3Kf4M2j7Lr2hfss4vnqxmLgsR&_nc_zt=23&_nc_ht=scontent.flim23-1.fna&_nc_gid=54H_-BvBSuXs8kyRx3XzTg&oh=00_AYHZ5qOlDMNXJijOTemLHqekN_lDTBweXPq-mQ2sGtnVIA&oe=67F5C3F1"
+                                    src="https://raw.githubusercontent.com/Anthonycs96/miPortafolio/refs/heads/main/assets/imagen2.jpg"
                                     alt="Perfil profesional"
                                     fill
                                     sizes="(max-width: 768px) 100vw, 50vw"
