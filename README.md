@@ -35,8 +35,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-Desktop:
-![FotoPortada](./assets/image1.png)
+FotoPortada:
+![FotoPortada](./assets/image1.jpg)
 
-Desktop:
-![FotoSobreMi](./assets/image2.png)
+FotoSobreMi:
+![FotoSobreMi](./assets/image2.jpg)
