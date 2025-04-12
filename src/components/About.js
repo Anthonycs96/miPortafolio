@@ -20,7 +20,7 @@ const About = () => {
                             <div className="absolute inset-0 bg-[var(--background-secondary)] rounded-2xl rotate-3 group-hover:-rotate-3 transition-all duration-300" />
                             <div className="relative w-full h-full overflow-hidden rounded-2xl">
                                 <Image
-                                    src="https://raw.githubusercontent.com/Anthonycs96/miPortafolio/refs/heads/main/assets/imagen2.jpg"
+                                    src="https://raw.githubusercontent.com/Anthonycs96/miPortafolio/refs/heads/main/assets/imagen1.jpg"
                                     alt="Perfil profesional"
                                     fill
                                     sizes="(max-width: 768px) 100vw, 50vw"

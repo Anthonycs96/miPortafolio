@@ -39,7 +39,7 @@ const Hero = () => {
                         <div className="relative w-64 h-64 md:w-80 md:h-80">
                             <div className="absolute inset-0 bg-white/10 rounded-full blur-2xl" />
                             <Image
-                                src="https://raw.githubusercontent.com/Anthonycs96/miPortafolio/refs/heads/main/assets/imagen1.jpg"
+                                src="https://raw.githubusercontent.com/Anthonycs96/miPortafolio/refs/heads/main/assets/imagen2.jpg"
                                 alt="Anthony Carhuayalle"
                                 fill
                                 className="rounded-full object-cover border-4 border-white/20"
