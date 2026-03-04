@@ -122,10 +122,9 @@ export default function Contact() {
                         <div className="p-4 rounded-xl"
                             style={{ background: 'var(--accent-sub)', border: '1px solid var(--border)', borderLeft: '3px solid var(--accent)' }}>
                             <p className="text-xs italic leading-relaxed" style={{ color: 'var(--text-sec)' }}>
-                                {'"'}Empecé supervisando 40 toneladas en rutas de Lima.
-                                Ahora construyo apps. El camino siempre sigue.{'"'}
+                                {`"Empecé supervisando 40 toneladas en rutas de Lima. Ahora construyo apps. El camino siempre sigue."`}
                             </p>
-                            <p className="text-[11px] mt-2 font-semibold" style={{ color: 'var(--accent)' }}>— Anthony, 2025</p>
+                            <p className="text-[11px] mt-2 font-semibold" style={{ color: 'var(--accent)' }}>{'— Anthony, 2025'}</p>
                         </div>
                     </motion.div>
 
