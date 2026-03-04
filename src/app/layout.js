@@ -1,64 +1,39 @@
-'use client';  // Marca este archivo como un componente cliente, debe estar en la primera línea
+'use client';
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Head from 'next/head';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import AudioPlayer from '@/components/AudioPlayer'
+import AudioPlayer from '@/components/AudioPlayer';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 const Layout = ({ children }) => {
-  const [darkMode, setDarkMode] = useState("white"); // opciones: "dark", "white"
-
-  // Esta parte detecta el tema del sistema y aplica la clase correspondiente
   useEffect(() => {
-    const html = document.documentElement;
-
-    const handleThemeChange = (e) => {
-      html.classList.remove("dark", "white"); // limpia antes de aplicar
-
-      if (e.matches) {
-        html.classList.add("dark");
-        setDarkMode("dark");
-      } else {
-        html.classList.add("white");
-        setDarkMode("white");
-      }
-    };
-
-    const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
-    handleThemeChange(prefersDarkMode); // Aplica el tema inicial
-
-    prefersDarkMode.addEventListener("change", handleThemeChange); // Escucha cambios
-
-    return () => {
-      prefersDarkMode.removeEventListener("change", handleThemeChange); // Limpia el listener
-    };
+    const saved = localStorage.getItem('portfolio-theme');
+    let isDark;
+    if (saved) {
+      isDark = saved === 'dark';
+    } else {
+      // Sigue al sistema operativo automáticamente
+      isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    document.documentElement.classList.toggle('dark', isDark);
   }, []);
 
   return (
     <>
       <Head>
-        <title>Mi Portafolio</title>
-        <meta name="description" content="Portafolio profesional" />
+        <title>Anthony Carhuayalle — Dev Journey</title>
+        <meta name="description" content="Portafolio de Anthony Carhuayalle — De supervisor de transporte a desarrollador de software" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <div className="min-h-screen flex flex-col">
+      <div className="relative min-h-screen flex flex-col" style={{ zIndex: 1 }}>
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow relative" style={{ zIndex: 1 }}>
           {children}
         </main>
         <Footer />
@@ -70,10 +45,8 @@ const Layout = ({ children }) => {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="es">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Layout>{children}</Layout>
       </body>
     </html>

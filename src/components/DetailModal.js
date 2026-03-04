@@ -1,101 +1,140 @@
 "use client"
 import { useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { X, Github, ExternalLink } from 'lucide-react'
 
-const DetailModal = ({ project, onClose }) => {
+export default function DetailModal({ project, onClose }) {
     useEffect(() => {
-        const handleEsc = (e) => {
-            if (e.key === 'Escape') onClose()
-        }
-
-        const handleClickOutside = (e) => {
-            if (e.target.classList.contains('modal-overlay')) {
-                onClose()
-            }
-        }
-
-        document.addEventListener('keydown', handleEsc)
-        document.addEventListener('click', handleClickOutside)
-
+        const onEsc = (e) => { if (e.key === 'Escape') onClose() }
+        document.addEventListener('keydown', onEsc)
+        document.body.style.overflow = 'hidden'
         return () => {
-            document.removeEventListener('keydown', handleEsc)
-            document.removeEventListener('click', handleClickOutside)
+            document.removeEventListener('keydown', onEsc)
+            document.body.style.overflow = ''
         }
     }, [onClose])
 
     if (!project) return null
 
     return (
-        <div className="fixed inset-0 z-50 overflow-y-auto">
-            <div
-                className="fixed inset-0 bg-black/30 backdrop-blur-sm modal-overlay"
-                onClick={onClose}
-            />
+        <AnimatePresence>
+            <div className="fixed inset-0 z-50">
+                {/* Overlay */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="fixed inset-0"
+                    style={{ background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(8px)' }}
+                    onClick={onClose}
+                />
 
-            <div className="relative min-h-screen flex items-center justify-center p-4">
-                <div className="relative bg-[var(--background)] rounded-lg max-w-3xl w-full p-6 shadow-xl border border-[var(--border)]">
-                    <button
-                        onClick={onClose}
-                        className="absolute top-4 right-4 text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                {/* Modal */}
+                <div className="relative h-full flex items-end md:items-center justify-center md:p-6">
+                    <motion.div
+                        initial={{ y: '100%', opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: '100%', opacity: 0 }}
+                        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                        className="relative w-full md:max-w-2xl max-h-[92vh] overflow-y-auto rounded-t-3xl md:rounded-2xl p-6 shadow-2xl"
+                        style={{
+                            background: 'var(--bg-surface)',
+                            border: '1px solid var(--border)',
+                            boxShadow: '0 -4px 60px var(--accent-glow)',
+                        }}
                     >
-                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
+                        {/* Handle mobile */}
+                        <div className="flex justify-center mb-4 md:hidden">
+                            <div className="w-10 h-1 rounded-full" style={{ background: 'var(--border)' }} />
+                        </div>
 
-                    <h2 className="text-2xl font-bold mb-4 text-[var(--foreground)]">{project.title}</h2>
+                        {/* Close */}
+                        <button onClick={onClose}
+                            className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-xl transition-all duration-200"
+                            style={{ background: 'var(--accent-sub)', border: '1px solid var(--border)', color: 'var(--text-muted)' }}
+                            onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--text)'; e.currentTarget.style.borderColor = 'var(--accent)' }}
+                            onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; e.currentTarget.style.borderColor = 'var(--border)' }}>
+                            <X size={14} />
+                        </button>
 
-                    <div className="prose max-w-none mb-6 text-[var(--foreground)]">
-                        <p className="whitespace-pre-line">{project.description}</p>
-                    </div>
+                        {/* Tipo + título */}
+                        {project.type && (
+                            <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
+                                style={{ background: 'var(--accent-sub)', color: 'var(--accent)' }}>
+                                {project.type}
+                            </span>
+                        )}
+                        <h2 className="text-2xl font-bold mt-3 mb-1 pr-8" style={{ color: 'var(--text)' }}>
+                            {project.title}
+                        </h2>
+                        {project.estado && (
+                            <p className="text-sm mb-4 flex items-center gap-1.5" style={{ color: project.estado === 'Completado' ? '#34d399' : '#f59e0b' }}>
+                                <span className="w-1.5 h-1.5 rounded-full inline-block"
+                                    style={{ background: project.estado === 'Completado' ? '#34d399' : '#f59e0b' }} />
+                                {project.estado}
+                            </p>
+                        )}
 
-                    {project.features && (
+                        {/* Descripción */}
+                        <div className="mb-5 p-4 rounded-xl" style={{ background: 'var(--accent-sub)', border: '1px solid var(--border)' }}>
+                            <p className="text-sm leading-relaxed whitespace-pre-line" style={{ color: 'var(--text-sec)' }}>
+                                {project.description}
+                            </p>
+                        </div>
+
+                        {/* Features */}
+                        {project.features && (
+                            <div className="mb-5">
+                                <h3 className="text-sm font-bold mb-3" style={{ color: 'var(--accent)' }}>
+                                    ✦ Características
+                                </h3>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    {project.features.map((f, i) => (
+                                        <div key={i} className="flex items-start gap-2 p-2.5 rounded-lg text-xs"
+                                            style={{ background: 'var(--card-bg)', border: '1px solid var(--border)', color: 'var(--text-sec)' }}>
+                                            <span style={{ color: 'var(--accent)', flexShrink: 0 }}>▸</span>
+                                            {f}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Tech stack */}
                         <div className="mb-6">
-                            <h3 className="font-semibold mb-2 text-[var(--foreground)]">Características:</h3>
-                            <ul className="list-disc pl-5 space-y-1 text-[var(--muted-foreground)]">
-                                {project.features.map((feature, index) => (
-                                    <li key={index}>{feature}</li>
+                            <h3 className="text-sm font-bold mb-3" style={{ color: 'var(--accent)' }}>
+                                ✦ Stack técnico
+                            </h3>
+                            <div className="flex flex-wrap gap-2">
+                                {project.technologies.map((t, i) => (
+                                    <span key={i} className="px-3 py-1 rounded-full text-xs font-medium"
+                                        style={{ background: 'var(--accent-sub)', border: '1px solid var(--border)', color: 'var(--accent-lt)' }}>
+                                        {t}
+                                    </span>
                                 ))}
-                            </ul>
+                            </div>
                         </div>
-                    )}
 
-                    <div className="flex flex-wrap gap-4 mb-6">
-                        <div>
-                            <h3 className="font-semibold text-[var(--foreground)]">Tipo:</h3>
-                            <p className="text-[var(--muted-foreground)]">{project.type}</p>
+                        {/* Actions */}
+                        <div className="flex gap-3 justify-end">
+                            {project.githubUrl && (
+                                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
+                                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105"
+                                    style={{ background: 'var(--accent-sub)', border: '1px solid var(--border)', color: 'var(--text)' }}>
+                                    <Github size={15} /> Código
+                                </a>
+                            )}
+                            {project.demoUrl && (
+                                <a href={project.demoUrl} target="_blank" rel="noopener noreferrer"
+                                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 hover:scale-105"
+                                    style={{ background: 'var(--accent2)', color: '#fff', boxShadow: '0 4px 16px rgba(255,87,34,0.3)' }}>
+                                    <ExternalLink size={15} /> Demo
+                                </a>
+                            )}
                         </div>
-                        <div>
-                            <h3 className="font-semibold text-[var(--foreground)]">Estado:</h3>
-                            <p className="text-[var(--muted-foreground)]">{project.estado}</p>
-                        </div>
-                    </div>
-
-                    <div className="flex justify-end space-x-4">
-                        {project.githubUrl && (
-                            <a
-                                href={project.githubUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-4 py-2 bg-[var(--primary)] text-[var(--primary-foreground)] rounded hover:bg-[var(--primary-hover)] transition-colors"
-                            >
-                                Ver Código
-                            </a>
-                        )}
-                        {project.demoUrl && (
-                            <a
-                                href={project.demoUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-4 py-2 bg-[var(--secondary)] text-[var(--secondary-foreground)] rounded hover:bg-[var(--secondary-hover)] transition-colors"
-                            >
-                                Ver Demo
-                            </a>
-                        )}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-        </div>
+        </AnimatePresence>
     )
 }
-
-export default DetailModal

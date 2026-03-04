@@ -1,140 +1,261 @@
+"use client"
 import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { Truck, Code2, GraduationCap, Briefcase, MapPin, ArrowRight } from 'lucide-react'
 
-const About = () => {
+// ─── Datos de la jornada ───────────────────────────────────────────────────
+// Opacidad progresiva: pasos más antiguos = más tenue, más recientes = más sólido
+const journeySteps = [
+    {
+        era: '2020 – 2022',
+        icon: <Truck size={18} />,
+        role: 'Digitador → Supervisor de Transporte',
+        company: 'Transportes77 / Backus — Gepae',
+        place: 'Ate, Lima',
+        opacity: 0.45,
+        desc: 'Empecé gestionando datos logísticos y ascendí a supervisar la cadena de transporte de Backus, coordinando flotas GPS en tiempo real.',
+    },
+    {
+        era: 'Ene – Mar 2022',
+        icon: <Truck size={18} />,
+        role: 'Asistente de Monitoreo',
+        company: 'LOGTRACK (Ajeper)',
+        place: 'Huachipa, Lima',
+        opacity: 0.55,
+        desc: 'Apoyo en optimización logística de carga pesada, gestión de flotas y resolución de incidencias en tiempo real.',
+    },
+    {
+        era: 'Feb – Jul 2023',
+        icon: <Truck size={18} />,
+        role: 'Asistente de Monitoreo',
+        company: 'AQTRANS',
+        place: 'Ate, Lima',
+        opacity: 0.65,
+        desc: 'Lideré implementación de sistema de gestión de flotas, reduciendo costos operativos y mejorando la seguridad de rutas.',
+    },
+    {
+        era: 'Ago 2023 – Hoy',
+        icon: <Briefcase size={18} />,
+        role: 'Auxiliar de Liquidaciones',
+        company: 'CICSA',
+        place: 'San Isidro, Lima',
+        opacity: 0.75,
+        desc: 'Gestión de expedientes, órdenes de compra y liquidaciones financieras. Primer acercamiento al mundo corporativo digital.',
+    },
+    {
+        era: 'Mar 2024 – Hoy',
+        icon: <GraduationCap size={18} />,
+        role: 'Estudiante de Ingeniería en Software',
+        company: 'Universidad Tecnológica del Perú (UTP)',
+        place: 'Ate, Lima',
+        opacity: 0.9,
+        desc: 'Formación formal en ingeniería de software, combinando la experiencia operativa del mundo real con fundamentos técnicos sólidos.',
+        highlight: true,
+    },
+    {
+        era: '2025 – Presente',
+        icon: <Code2 size={18} />,
+        role: 'Aprendiendo a programar',
+        company: 'Proyectos propios — Vibe Coding',
+        place: 'Lima (remoto)',
+        opacity: 1,
+        desc: 'Construyendo VetListo+ con Next.js, Node.js y MySQL. Uso vibe coding para aprender haciendo. Estoy en proceso — todavía no soy desarrollador, pero voy en camino.',
+        highlight: true,
+        current: true,
+    },
+]
+
+const eduData = [
+    {
+        icon: '🎓',
+        inst: 'Instituto IDAT',
+        degree: 'Desarrollo de Sistemas de la Información',
+        period: 'Jul 2017 – Dic 2022',
+        place: 'Ate, Lima, Perú',
+    },
+    {
+        icon: '🏛️',
+        inst: 'Universidad Tecnológica del Perú (UTP)',
+        degree: 'Ingeniería en Software',
+        period: 'Mar 2024 – En proceso',
+        place: 'Ate, Lima, Perú',
+    },
+]
+
+export default function About() {
     return (
-        <section id="about" className="relative py-16 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)] via-[var(--accent)] to-[var(--secondary)] opacity-5" />
-            {/* Fondo inclinado superior */}
+        <section id="about" className="relative py-14 overflow-hidden">
+            <div className="section-divider" />
 
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-                <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-transparent bg-clip-text">
-                    Sobre Mí
-                </h2>
+                {/* Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-10"
+                >
+                    <span className="chapter-label"><MapPin size={12} />Capítulo I</span>
+                    <h2 className="text-4xl md:text-5xl font-bold" style={{ color: 'var(--text)' }}>
+                        El{' '}
+                        <span className="text-grad">Viajero</span>
+                    </h2>
+                    <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: 'var(--text-muted)' }}>
+                        De gestionar rutas de 40 toneladas a construir apps web —
+                        cada experiencia fue un paso en el mapa.
+                    </p>
+                </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                    {/* Columna Izquierda: Imagen y Descripción */}
-                    <div className="lg:col-span-5 space-y-8">
-                        <div className="relative aspect-[4/3] w-full group mb-8">
-                            <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-2xl -rotate-6 opacity-20 group-hover:rotate-3 transition-all duration-300" />
-                            <div className="absolute inset-0 bg-[var(--background-secondary)] rounded-2xl rotate-3 group-hover:-rotate-3 transition-all duration-300" />
-                            <div className="relative w-full h-full overflow-hidden rounded-2xl">
+                {/* Imagen + presentación */}
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-10">
+                    <motion.div
+                        initial={{ opacity: 0, x: -24 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        className="lg:col-span-2 flex flex-col gap-5"
+                    >
+                        <div className="relative aspect-[4/3] group rounded-2xl overflow-hidden">
+                            <div className="absolute inset-0 rounded-2xl -rotate-2 opacity-40"
+                                style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent-lt))' }} />
+                            <div className="relative h-full rounded-2xl overflow-hidden"
+                                style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}>
                                 <Image
                                     src="https://raw.githubusercontent.com/Anthonycs96/miPortafolio/refs/heads/main/assets/imagen1.jpg"
-                                    alt="Perfil profesional"
+                                    alt="Anthony - Foto profesional"
                                     fill
-                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                    sizes="(max-width: 1024px) 100vw, 40vw"
                                     priority
-                                    className="object-cover rounded-2xl shadow-xl group-hover:scale-105 transition-all duration-300"
-                                    style={{
-                                        objectFit: 'cover',
-                                        objectPosition: 'center',
-                                    }}
                                 />
                             </div>
                         </div>
-                        <div className="bg-[var(--background-secondary)] p-6 rounded-xl shadow-lg border border-[var(--border)]">
-                            <p className="text-lg text-[var(--foreground)] leading-relaxed">
-                                Soy estudiante de Ingeniería en Software, buscando mi primera oportunidad profesional como desarrollador.
-                                Me apasiona aprender nuevas tecnologías y contribuir al desarrollo
-                                de soluciones innovadoras.
+
+                        {/* Resumen personal */}
+                        <div className="card p-5 rounded-2xl">
+                            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-sec)' }}>
+                                Estudiante de Ingeniería en Software con experiencia real en logística y operaciones.
+                                Me adapto rápido a sistemas digitales porque ya aprendí a resolver problemas en entornos
+                                de alta presión. Busco mi primera oportunidad formal como desarrollador.
                             </p>
                         </div>
-                    </div>
 
-                    {/* Columna Derecha: Educación y Experiencia */}
-                    <div className="lg:col-span-7 space-y-8">
                         {/* Educación */}
-                        <div className="bg-[var(--background-secondary)] p-6 rounded-xl shadow-lg border border-[var(--border)]">
-                            <h3 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-transparent bg-clip-text">
-                                Educación
+                        <div className="card p-5 rounded-2xl">
+                            <h3 className="text-sm font-bold mb-4 flex items-center gap-2" style={{ color: 'var(--text)' }}>
+                                <GraduationCap size={16} style={{ color: 'var(--accent)' }} />
+                                Formación académica
                             </h3>
-                            <div className="space-y-4">
-                                {educationData.map((edu, index) => (
-                                    <div key={index} className="p-4 bg-[var(--background)] rounded-xl hover:shadow-md transition-all duration-300 border border-[var(--primary)/20]">
-                                        <h4 className="text-lg font-bold text-[var(--primary)]">{edu.institution}</h4>
-                                        <p className="text-base text-[var(--foreground)]">{edu.degree}</p>
-                                        <p className="text-sm text-[var(--foreground)/80]">{edu.period}</p>
-                                        <p className="text-sm text-[var(--foreground)/80]">{edu.location}</p>
+                            <div className="space-y-3">
+                                {eduData.map((e, i) => (
+                                    <div key={i} className="flex gap-3 p-3 rounded-xl" style={{ background: 'var(--accent-sub)' }}>
+                                        <span className="text-lg">{e.icon}</span>
+                                        <div>
+                                            <p className="font-bold text-xs" style={{ color: 'var(--text)' }}>{e.inst}</p>
+                                            <p className="text-xs" style={{ color: 'var(--text-sec)' }}>{e.degree}</p>
+                                            <p className="text-xs mt-0.5" style={{ color: 'var(--accent)' }}>{e.period}</p>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
                         </div>
+                    </motion.div>
 
-                        {/* Experiencia */}
-                        <div className="bg-[var(--background-secondary)] p-6 rounded-xl shadow-lg border border-[var(--border)]">
-                            <h3 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-transparent bg-clip-text">
-                                Experiencia
-                            </h3>
-                            <div className="space-y-4">
-                                {experienceData.map((exp, index) => (
-                                    <div key={index} className="p-4 bg-[var(--background)] rounded-xl hover:shadow-md transition-all duration-300 border border-[var(--primary)/20]">
-                                        <span className="text-sm text-[var(--foreground)/70] italic">{exp.type}</span>
-                                        <h4 className="text-lg font-bold text-[var(--primary)]">{exp.title}</h4>
-                                        <p className="text-sm text-[var(--foreground)/80]">{exp.period}</p>
-                                        <p className="text-sm text-[var(--foreground)] mt-2">{exp.description}</p>
-                                    </div>
+                    {/* Timeline del camino */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 24 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7, delay: 0.1 }}
+                        className="lg:col-span-3"
+                    >
+                        <h3 className="text-lg font-bold mb-8 flex items-center gap-2" style={{ color: 'var(--text)' }}>
+                            <span style={{ color: 'var(--accent)' }}>🗺️</span>
+                            El camino recorrido
+                        </h3>
+
+                        <div className="relative pl-6">
+                            {/* Línea del camino — turquesa progresivo */}
+                            <div className="absolute left-0 top-2 bottom-2 w-[2px] rounded-full"
+                                style={{ background: 'linear-gradient(to bottom, var(--accent-glow), var(--accent))' }} />
+
+                            <div className="space-y-5">
+                                {journeySteps.map((step, i) => (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, x: 16 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.5, delay: i * 0.08 }}
+                                        className="relative pl-7"
+                                    >
+                                        {/* Dot — turquesa con opacidad progresiva */}
+                                        <div
+                                            className="absolute left-[-10px] top-3 w-4 h-4 rounded-full flex items-center justify-center border-2"
+                                            style={{
+                                                background: 'var(--accent)',
+                                                borderColor: 'var(--bg)',
+                                                opacity: step.opacity ?? 1,
+                                                boxShadow: `0 0 8px var(--accent-glow)`,
+                                            }}
+                                        >
+                                            {step.current && (
+                                                <span className="w-2 h-2 rounded-full animate-ping"
+                                                    style={{ background: 'var(--bg)', position: 'absolute' }} />
+                                            )}
+                                        </div>
+
+                                        <div
+                                            className="p-4 rounded-xl transition-all duration-300"
+                                            style={{
+                                                background: step.highlight ? 'var(--accent-sub)' : 'var(--card-bg)',
+                                                border: '1px solid var(--border)',
+                                                opacity: 0.6 + (step.opacity ?? 1) * 0.4,
+                                            }}
+                                        >
+                                            <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
+                                                <div>
+                                                    <div className="flex items-center gap-1.5">
+                                                        <span style={{ color: 'var(--accent)' }}>{step.icon}</span>
+                                                        <h4 className="font-bold text-sm" style={{ color: 'var(--text)' }}>
+                                                            {step.role}
+                                                        </h4>
+                                                        {step.current && (
+                                                            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold"
+                                                                style={{ background: 'var(--accent)', color: 'var(--bg)' }}>
+                                                                Ahora
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    <p className="text-xs mt-0.5" style={{ color: 'var(--text-sec)' }}>
+                                                        {step.company}
+                                                    </p>
+                                                </div>
+                                                <div className="text-right">
+                                                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
+                                                        style={{ background: 'var(--accent-sub)', color: 'var(--accent)' }}>
+                                                        {step.era}
+                                                    </span>
+                                                    <p className="text-[10px] mt-1" style={{ color: 'var(--text-muted)' }}>
+                                                        📍 {step.place}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                                                {step.desc}
+                                            </p>
+                                        </div>
+                                    </motion.div>
                                 ))}
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
+
+            <div className="section-divider" />
         </section>
     )
 }
-
-// Datos de educación y experiencia
-const educationData = [
-    {
-        institution: "Instituto IDAT",
-        degree: "Desarrollo de Sistemas de la Información",
-        period: "Julio 2017 - Diciembre 2022",
-        location: "Ate, Lima, Perú"
-    },
-    {
-        institution: "Universidad Tecnológica del Perú (UTP)",
-        degree: "Ingeniería en Software",
-        period: "Marzo 2024 - En proceso",
-        location: "Ate, Lima, Perú"
-    }
-]
-
-const experienceData = [
-    // {
-    //     type: "Proyecto personal",
-    //     title: "Desarrollador Full Stack – Sistema de Gestión para Veterinarias",
-    //     period: "2024 - Actual",
-    //     description: "Proyecto completo con Next.js, Node.js, Express y MySQL. Incluye autenticación, gestión de citas médicas, servicios adicionales y roles personalizados para usuarios."
-    // },
-    {
-        type: "Proyecto Personal Full Stack",
-        title: "VetListo+ | Sistema de Gestión Veterinaria",
-        period: "En proceso.",
-        description: `Desarrollo de una aplicación web completa para la gestión de clínicas veterinarias.
-
-    Frontend:
-    • Desarrollo de interfaz moderna con Next.js 14 y TailwindCSS
-    • Implementación de sistema de autenticación JWT
-    • Diseño de dashboard interactivo con múltiples roles
-    • Integración de animaciones fluidas con Framer Motion
-    • Sistema de tema oscuro/claro personalizable
-
-    Backend:
-    • Desarrollo de API REST con Node.js y Express
-    • Diseño de base de datos MySQL
-    • Implementación de sistema de roles y permisos
-    • Desarrollo de sistema de auditoría de cambios
-    • Integración de sistema de fidelización de clientes`,
-
-        highlights: [
-            "Arquitectura modular y escalable",
-            "Sistema multi-rol completo",
-            "Diseño responsive y accesible",
-            "Optimización de rendimiento",
-            "Documentación detallada"
-        ]
-    }
-]
-
-export default About

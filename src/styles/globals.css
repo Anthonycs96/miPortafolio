@@ -1,206 +1,248 @@
 @import "tailwindcss";
+
+/* ══════════════════════════════════════════════════════════
+   PALETA — Neon Cyber-HUD
+   Light: Clean tech  |  Dark: Cyber / OLED
+══════════════════════════════════════════════════════════ */
+
+/* ── MODO CLARO ── */
 :root {
-  --fondo-degradado: linear-gradient(to right, #3b82f6, #8b5cf6, #7c3aed);
+  --bg:          #f0f4f8;
+  --bg-surface:  #ffffff;
+  --bg-raised:   #e8edf2;
 
-  --background: #f1f5f9;
+  --text:        #0d1117;
+  --text-sec:    #24292f;
+  --text-muted:  #57606a;
+
+  --accent:      #0284c7;
+  --accent-lt:   #38bdf8;
+  --accent-glow: rgba(2, 132, 199, 0.18);
+  --accent-sub:  rgba(2, 132, 199, 0.07);
+
+  --accent2:     #ea580c;
+
+  --border:      rgba(0, 0, 0, 0.09);
+  --border-sec:  rgba(0, 0, 0, 0.05);
+
+  --card-bg:     #ffffff;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
+
+  --shadow:      rgba(0, 0, 0, 0.08);
+
+  /* compat */
+  --foreground:           #0d1117;
+  --muted-foreground:     #57606a;
+  --primary:              #0284c7;
+  --background:           #f0f4f8;
   --background-secondary: #ffffff;
-  /* Botón primario */
-  --button: #3b82f6;
-  --button-hover: #2563eb;
-  --button-text: #ffffff;
- 
-  /* Botón secundario */
-  --button-secondary: #ffffff;
-  --button-secondary-hover: #d1d5db;
-  --button-secondary-text: #1f2937;
-
-  /* Botón terciario */
-  --button-tertiary: #ffffff;
-  --button-tertiary-hover: #f3f4f6;
-  --button-tertiary-text: #111111;
-
-    /* Botón cuarto */
-  --navbar-cuarto: #ffffff;
-  --navbar-cuarto-hover: #f3f4f6;
-  --navbar-cuarto-text: #111111;
-  --navbar-cuarto-text-hover: #111111;
-
-  /* Botón de éxito */
-  --button-success: #10b981;
-  --button-success-hover: #059669;
-  --button-success-text: #ffffff;
-
-  /* Botón de advertencia */
-  --button-warning: #f59e0b;
-  --button-warning-hover: #d97706;
-  --button-warning-text: #ffffff;
-
-  /* Variables para íconos en modo claro */
-  --icon-secondary-bg: #111111;       /* Fondo oscuro para íconos en modo claro */
-  --icon-secondary-hover-bg: #5d6168; /* Fondo en hover en modo claro */
-  --icon-secondary-text: #f3f4f6;       /* Color del texto o ícono */
-
-  /* Botón de error/destructivo */
-  --button-danger: #ef4444;
-  --button-danger-hover: #dc2626;
-  --button-danger-text: #ffffff;
-  --foreground: #171717;
-  --primary: #2563eb;
-  --primary-foreground: #ffffff;
-  --secondary: #f3f4f6;
-  --secondary-foreground: #111827;
-  --muted: #f3f4f6;
-  --muted-foreground: #6b7280;
-  --accent: #f3f4f6;
-  --accent-foreground: #111827;
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-  --border: #e5e7eb;
-  --input: #e5e7eb;
-  --ring: #2563eb;
-  --radius: 0.5rem;
 }
 
+/* ── MODO OSCURO — Cyber Punk ── */
 .dark {
+  --bg:          #080b14;
+  --bg-surface:  #0f1221;
+  --bg-raised:   #171a2e;
 
-  --fondo-degradado: linear-gradient(to right, #1e40af, #6d28d9, #4c1d95);
+  --text:        #e2e8f0;
+  --text-sec:    rgba(226, 232, 240, 0.65);
+  --text-muted:  rgba(226, 232, 240, 0.35);
 
-  --background: #1e1e1e;
-  --background-secondary: #111111;
-   /* Botón primario en dark */
-   --button: #3b82f6;
-   --button-hover: #60a5fa;
-   --button-text: #ffffff;
- 
-   /* Botón secundario en dark */
-   --button-secondary: #5d6168;
-   --button-secondary-hover: #111827;
-   --button-secondary-text: #f3f4f6;
- 
-   /* Botón terciario en dark */
-   --button-tertiary: #242425;
-   --button-tertiary-hover: #303031;
-   --button-tertiary-text: #f3f4f6;
+  --accent:      #00d4ff;
+  --accent-lt:   #38e8ff;
+  --accent-glow: rgba(0, 212, 255, 0.25);
+  --accent-sub:  rgba(0, 212, 255, 0.07);
 
-      /* Botón cuarto en dark */
-    --navbar-cuarto: #242425;
-    --navbar-cuarto-hover: #303031;
-    --navbar-cuarto-text: #f3f4f6;
-    --navbar-cuarto-text-hover: #111111;
- 
-   /* Botón de éxito en dark */
-   --button-success: #22c55e;
-   --button-success-hover: #16a34a;
-   --button-success-text: #ffffff;
- 
-   /* Botón de advertencia en dark */
-   --button-warning: #facc15;
-   --button-warning-hover: #eab308;
-   --button-warning-text: #111827;
+  --accent2:     #ff5722;
+  --accent3:     #e040fb;
 
-   /* Variables para íconos en modo oscuro */
-  --icon-secondary-bg: #ffffff;       /* Fondo blanco para íconos en modo dark */
-  --icon-secondary-hover-bg: #e5e5e5;   /* Fondo en hover en modo dark (ligeramente gris) */
-  --icon-secondary-text: #111111;       /* Color del texto o ícono en modo dark */
-   
- 
-   /* Botón de error/destructivo en dark */
-   --button-danger: #ef4444;
-   --button-danger-hover: #dc2626;
-   --button-danger-text: #ffffff;
-  --foreground: #ededed;
-  --primary: #3b82f6;
-  --primary-foreground: #ffffff;
-  --secondary: #1f2937;
-  --secondary-foreground: #f3f4f6;
-  --muted: #1f2937;
-  --muted-foreground: #9ca3af;
-  --accent: #1f2937;
-  --accent-foreground: #f3f4f6;
-  --destructive: #dc2626;
-  --destructive-foreground: #ffffff;
-  --border: #374151;
-  --input: #374151;
-  --ring: #3b82f6;
+  --border:      rgba(0, 212, 255, 0.12);
+  --border-sec:  rgba(0, 212, 255, 0.06);
+
+  --card-bg:     #0f1221;
+  --card-shadow: 0 0 0 1px rgba(0, 212, 255, 0.08), 0 4px 24px rgba(0,0,0,0.4);
+
+  --shadow:      rgba(0, 0, 0, 0.5);
+
+  /* compat */
+  --foreground:           #e2e8f0;
+  --muted-foreground:     rgba(226, 232, 240, 0.35);
+  --primary:              #00d4ff;
+  --background:           #080b14;
+  --background-secondary: #0f1221;
 }
+
+/* ══════════════════════════════════════════════════════════
+   BODY
+══════════════════════════════════════════════════════════ */
+html { color-scheme: light; }
+html.dark { color-scheme: dark; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.2s ease;
 }
 
-* {
-  border-color: var(--border);
+/* Grid cyberpunk — solo en dark */
+html.dark body {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
+* { border-color: var(--border); }
+
+/* ══════════════════════════════════════════════════════════
+   CARDS
+══════════════════════════════════════════════════════════ */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--card-shadow), 0 0 20px var(--accent-glow);
+}
+
+/* Glass */
+.glass {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.dark .glass {
+  background: rgba(26, 29, 45, 0.85);
+}
+
+/* ══════════════════════════════════════════════════════════
+   TIPOGRAFÍA
+══════════════════════════════════════════════════════════ */
+.text-accent { color: var(--accent); }
+
+.text-grad {
+  background: linear-gradient(135deg, var(--accent-lt), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.dark .text-grad {
+  background: linear-gradient(135deg, #00d4ff, #e040fb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ══════════════════════════════════════════════════════════
+   CHAPTER LABEL
+══════════════════════════════════════════════════════════ */
+.chapter-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+.chapter-label::before,
+.chapter-label::after {
+  content: '';
+  height: 1px;
+  width: 24px;
+  background: var(--accent);
+  opacity: 0.35;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SEPARADOR
+══════════════════════════════════════════════════════════ */
+.section-divider {
+  height: 1px;
+  background: var(--border);
+}
+
+/* ══════════════════════════════════════════════════════════
+   AVATAR RING
+══════════════════════════════════════════════════════════ */
+@keyframes ring-spin { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+
+.avatar-ring {
+  background: conic-gradient(from 0deg,
+    var(--accent), var(--accent-lt), var(--accent-sub), var(--accent));
+  animation: ring-spin 10s linear infinite;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   TYPING CURSOR
+══════════════════════════════════════════════════════════ */
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.9em;
+  background: var(--accent);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+/* ══════════════════════════════════════════════════════════
+   ECUALIZADOR
+══════════════════════════════════════════════════════════ */
+@keyframes eq-bar-1 { 0%,100%{height:4px} 50%{height:16px} }
+@keyframes eq-bar-2 { 0%,100%{height:8px}  30%{height:18px} 70%{height:5px} }
+@keyframes eq-bar-3 { 0%,100%{height:5px}  40%{height:20px} 80%{height:7px} }
+@keyframes eq-bar-4 { 0%,100%{height:10px} 20%{height:4px}  60%{height:18px} }
+.eq-bar-1 { animation: eq-bar-1 0.9s ease-in-out infinite; }
+.eq-bar-2 { animation: eq-bar-2 0.7s ease-in-out infinite; }
+.eq-bar-3 { animation: eq-bar-3 1.1s ease-in-out infinite; }
+.eq-bar-4 { animation: eq-bar-4 0.8s ease-in-out infinite; }
+
+/* ══════════════════════════════════════════════════════════
+   PULSE GLOW
+══════════════════════════════════════════════════════════ */
+@keyframes pulse-glow {
+  0%,100% { box-shadow: 0 0 6px var(--accent-glow); }
+  50%      { box-shadow: 0 0 18px var(--accent-glow); }
+}
+.pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+/* ══════════════════════════════════════════════════════════
+   SCROLL BAR
+══════════════════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; opacity: 0.4; }
+
+/* ══════════════════════════════════════════════════════════
+   INPUTS
+══════════════════════════════════════════════════════════ */
 @layer base {
-  /* Estilo del select */
-  select {
-    background-color: var(--background-secondary);
-    color: var(--foreground);
-    border-color: var(--border);
-    caret-color: var(--primary);
+  input, textarea, select {
+    caret-color: var(--accent);
+    background-color: var(--bg);
+    color: var(--text);
   }
-
-  /* Estilo del select en modo dark */
-  [data-theme="dark"] select {
-    background-color: var(--background);
-    color: var(--foreground);
-    border-color: var(--border);
-    caret-color: var(--primary);
-  }
-
-  /* Estilo de las opciones del select */
-  select option {
-    background-color: var(--background);
-    color: var(--foreground);
-  }
-
-  /* Estilo de las opciones del select en modo dark */
-  [data-theme="dark"] select option {
-    background-color: var(--background);
-    color: var(--foreground);
-  }
-
-  /* Estilo del cursor y barra de escritura */
-  input,
-  textarea,
-  select {
-    caret-color: var(--primary); /* Color del cursor */
-  }
-
-  /* Estilo del cursor en modo dark */
-  [data-theme="dark"] input,
-  [data-theme="dark"] textarea,
-  [data-theme="dark"] select {
-    caret-color: var(--primary); /* Color del cursor en modo dark */
-  }
-
-  /* Estilo de la barra de escritura */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--background);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--primary);
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--primary);
-  }
-
-  /* Estilo del autocompletado */
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px var(--background-secondary) inset !important;
-    -webkit-text-fill-color: var(--foreground);
+    -webkit-box-shadow: 0 0 0px 1000px var(--bg-surface) inset !important;
+    -webkit-text-fill-color: var(--text);
     transition: background-color 5000s ease-in-out 0s;
   }
 }
