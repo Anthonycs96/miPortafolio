@@ -7,6 +7,7 @@ import Head from 'next/head';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AudioPlayer from '@/components/AudioPlayer';
+import SpotifyTracks from '@/components/SpotifyTracks';
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -38,6 +39,7 @@ const Layout = ({ children }) => {
         </main>
         <Footer />
         <AudioPlayer />
+        <SpotifyTracks />
       </div>
     </>
   );
